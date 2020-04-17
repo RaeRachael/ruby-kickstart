@@ -25,8 +25,8 @@
 
 def deaf_grandma
     string = gets.chomp
-    exit if string == "BYE"
-    if string == string.upcase
+    return "" if string == "BYE"
+    if string == string.upcase && string !="" 
         puts "NO, NOT SINCE 1938!"
     else
         puts "HUH?! SPEAK UP, SONNY!"
