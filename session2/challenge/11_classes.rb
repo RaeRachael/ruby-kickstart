@@ -18,3 +18,43 @@
 # if the parameter is greater than 99, set the number of beer bottles to 99
 # Then make a public method called print_song that outputs all stanzas from the number of bottles of beer down to zero.
 # Add any additional methods you find helpful.
+
+class BeerSong
+
+    attr_accessor 'bottle'
+
+    def initialize(bottle=0)
+        @bottle = bottle
+        @bottle = 99 if bottle > 99
+        @bottle = 0 if bottle < 0
+    end
+    
+    def print_song
+        while @bottle > 1
+            puts "#{words(@bottle)} bottles of beer on the wall,"
+            puts "#{words(@bottle)} bottles of beer,"
+            puts "Take one down, pass it around,"
+            @bottle -= 1
+            puts "#{words(@bottle)} bottles of beer on the wall." if @bottle >1
+            puts "One bottle of beer on the wall." if @bottle ==1
+        end
+        if @bottle ==1
+            puts "One bottle of beer on the wall,"
+            puts "One bottle of beer,"
+            puts "Take one down, pass it around,"
+            puts "Zero bottles of beer on the wall."
+        elsif @bottle ==0
+            puts "" 
+        end
+    end
+    
+    def words(number)
+        if number < 20
+            %w(zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen)[number]
+        elsif number % 10 == 0
+            %w(zero ten twenty thirty forty fifty sixty seventy eighty ninety)[number/10]
+        else
+            "#{words(number/10*10)}-#{words(number%10)}".downcase
+        end.capitalize
+    end
+end

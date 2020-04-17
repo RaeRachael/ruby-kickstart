@@ -5,3 +5,8 @@
 # got_three? ['a', 'a', 'b']  # => false
 # got_three? ['a', 'a', 'a']  # => true
 # got_three? [1, 2, 1, 1]     # => false
+
+def got_three?(array)
+    array.each_with_index {|x,i| return true if x==array[i+1] && x==array[i+2]}
+    false
+end

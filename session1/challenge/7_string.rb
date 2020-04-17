@@ -5,4 +5,8 @@
 # pirates_say_arrrrrrrrr("Pirates say arrrrrrrrr")        # => "arrrrrrrr"
 
 def pirates_say_arrrrrrrrr(string)
+    list=[]
+    string.chars.each_with_index { |x,i| 
+        list << string[i+1] if x=="r" || x=="R"}
+    list.join("")
 end

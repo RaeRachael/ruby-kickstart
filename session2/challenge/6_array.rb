@@ -14,3 +14,17 @@
 # prime_chars? ['ab', 'cd']       # => false
 # prime_chars? ['a', 'bcd']       # => false
 # prime_chars? ['a', 'b', 'cd']   # => false
+
+def prime_chars?(array)
+    tot=0
+    array.each{|x| tot+=x.size}
+    prime?(tot)
+end
+
+def prime?(num)
+    return false if num<2
+    for x in 2..num**0.5
+        return false if num%x==0
+    end  
+    return true
+end

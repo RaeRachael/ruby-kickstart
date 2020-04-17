@@ -6,6 +6,7 @@
 # "".every_other_char         # => ""
 
 class String
-  def every_other_char
+  def every_other_char 
+    return self.chars.each_with_index.map {|x,i| x if i%2==0}.join 
   end
 end
