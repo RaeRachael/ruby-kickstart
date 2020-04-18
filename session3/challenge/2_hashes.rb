@@ -9,20 +9,16 @@
 # staircase 5  # => {1 => [], 3 => [2], 5 =>[2, 4]}
 
 def staircase (num)
-    ans = Hash.new()
-    i=0
-    while i<num
-        i+=1
-        if i%2==1
-            ans[i]=[]
-            x=2
-            while x<i
-                if x%2==0
-                    ans[i] << x
-                end
-            x+=1
-            end
+    ans = Hash.new
+    i=1
+    while i=<num
+        ans[i]=[]
+        x=2
+        while x<i
+            ans[i] << x
+            x+=2
         end
+        i+=2
     end
     ans
 end

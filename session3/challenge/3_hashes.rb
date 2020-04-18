@@ -10,6 +10,6 @@
 def word_count(string)
     ans = {}
     words = string.downcase.split(/\s/)
-    words.uniq.each {|x| ans[x] = words.count(x)}
+    words.each {|x| ans[x] = words.count(x)}
     ans
 end
