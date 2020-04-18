@@ -1,7 +1,7 @@
 RSpec.describe 'spiral_access' do
   def assert_yielded(ary_of_arys, expected)
     seen = []
-    spiral_access(ary_of_arys) { |element| seen << element }
+    spiral_access(ary_of_arys).each { |element| seen << element }
     expect(seen).to eq expected
   end
 

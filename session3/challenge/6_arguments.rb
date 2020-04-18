@@ -17,3 +17,11 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+def match_maker(arg1,*args)
+    array = *args
+    ans=[]
+    array.each_with_index {|x,i|
+        ans << (!!array[i] == !!array[i+1]) if arg1 == false && i%2==0
+        ans << (!!array[i] != !!array[i+1]) if arg1 == true && i%2==0}
+    ans
+end
