@@ -18,8 +18,7 @@
 # order # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
 
 
-def spiral_access(array, &block)
-    return [] if array==[[]] 
+def spiral_access(array, &block) 
     array[0].each {|x| block.call(x)} 
     return if array[1].nil? 
     return spiral_access(array[1..-1].transpose.reverse, &block)
