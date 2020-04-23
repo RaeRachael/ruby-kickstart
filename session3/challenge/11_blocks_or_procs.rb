@@ -30,5 +30,13 @@
 # end
 
 
-def array_init
+def array_init(num=5, &block)
+    blck = block || Proc.new { |x| (100*x).to_s}
+    i = 0
+    array= []
+    while i<num do
+        array[i] = blck.call(i)
+        i+=1
+    end
+    array    
 end
