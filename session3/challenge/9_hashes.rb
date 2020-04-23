@@ -29,4 +29,10 @@
 # shared [1,2,3], [3,2,1]            # => [{1=>[true, true], 2=>[true, true], 3=>[true, true]}, [1, 2, 3]]
 
 def shared(a, b)
+    hsh = Hash.new {}
+    a.each { |x| hsh[x] = [a.include?(x) ? true : nil, b.include?(x) ? true : nil] }
+    b.each { |x| hsh[x] ||= [a.include?(x) ? true : nil, b.include?(x) ? true : nil] }
+    in_all = []
+    hsh.each { |k,x| in_all << k if x == [true, true] }
+    return [hsh, in_all]
 end
