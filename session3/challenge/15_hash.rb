@@ -38,3 +38,7 @@
 # middle head                        # => 3
 # head = {:data => 6, :next => head}
 # middle head                        # => 3
+
+def middle(hsh)
+    return (hsh[:data] + 1)/2
+end
