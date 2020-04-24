@@ -5,7 +5,7 @@
 #
 # Your job is to take the hashes, and return an array containing
 # all of the complete file paths where each directory is separated by a '/'
-#
+# 
 # HINT:
 #   [1,2,3].is_a? Array # => true
 #   [1,2,3].is_a? Hash  # => false
@@ -29,5 +29,17 @@
 # create it from scratch :)
 
 
-def pathify
+def pathify(directory, path = "", tree = [] )
+    current_path = path
+    if directory.is_a?(Hash)
+        directory.each { |parent, child|   
+            pathify(child, path = current_path + "/#{parent}", tree)
+        }
+    end
+    if directory.is_a?(Array)
+        directory.each { |file|
+        tree << current_path + "/#{file}"
+        }
+    end
+    tree
 end
