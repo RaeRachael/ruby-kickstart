@@ -13,5 +13,9 @@
 #
 # line_sums('nums.txt')   # =>   808 + 919 + 822 + 876 + 974   # =>   4399
 
-def line_sums
+def line_sums(file)
+    sum = 0
+    numbers = File.read file
+    numbers.split("\n").each {|line| sum += line.split(" ").map{|x| x.to_i}.max}
+    sum
 end
