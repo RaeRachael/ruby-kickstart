@@ -58,5 +58,15 @@ stack # =>  (3)2)1)
 
 
 class Stack
-  # **define the inspect method here**
+  def inspect
+    out = []
+    copy = self
+    until @head == nil
+      out << @head.data.inspect
+      puts @head.data
+      self.pop
+    end
+    out = "(" + out.join(")") + ")"
+    out
+  end
 end
