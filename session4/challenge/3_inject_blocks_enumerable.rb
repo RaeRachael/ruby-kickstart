@@ -25,5 +25,7 @@
 #   The method then returns 45
 #
 
-def passthrough
+def passthrough(lst, pass, &block)
+    lst.each { |x| pass = block.call(pass,x) }
+    pass
 end

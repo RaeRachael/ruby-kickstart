@@ -17,3 +17,16 @@
 # stack.push 1
 # stack.push 2
 # stack # => [1, 2]
+
+require File.dirname(__FILE__) + "/1_stack_classes_inspect.rb"
+
+class StackInDisguise < Stack
+  def inspect
+    out = []
+    until @head == nil
+      out << @head.data
+      self.pop
+    end
+  out.reverse.to_s
+  end
+end
