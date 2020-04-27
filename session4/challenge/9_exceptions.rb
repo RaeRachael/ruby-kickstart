@@ -13,4 +13,9 @@
 # why that error was raised.
 
 def full_name(person)
+    return "#{person.first_name} #{person.last_name}"
+    rescue FirstNameError
+        return person.last_name
+    rescue LastNameError
+        return person.first_name
 end
