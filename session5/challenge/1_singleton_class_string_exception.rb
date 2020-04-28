@@ -24,7 +24,32 @@
 #   controller.body_class + 'landing'     # => #<RuntimeError: use << method instead>
 #
 
-class ApplicationController  
-  def body_class
-  end
-end
+class ApplicationController
+  def body_class     
+    return @body_class if @body_class
+    @body_class ||= ""
+    class << @body_class  ### needed to get the same id numbers I think
+      def << str 
+        puts "<< #{str}"
+        repeat = 0
+        self.split(" ").each{ |x| repeat = 1 if x == str}
+        return self if repeat == 1
+        concat(' ') unless length.zero?
+        concat(str)
+      end
+      
+      def +(str)
+        raise RuntimeError, "use << method instead"
+      end
+      def *(str)
+        raise RuntimeError, "use << method instead"
+      end
+      def []=(a,b) 
+        raise RuntimeError, "use << method instead"
+      end
+    end 
+    @body_class
+  end 
+end 
+
+

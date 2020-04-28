@@ -72,7 +72,7 @@ class User
         @blogs = []
     end
     
-    def add_blog (date, text)
+    def add_blog(date, text)
         newblog = Blog.new(date,user=username,text)
         @blogs << newblog
         newblog
